@@ -14,7 +14,7 @@ public class Datos {
 	
 	public static String marca1 = "Springwall";
 	public static double precio1 = 679.0;
-	public static int garantia = 10;
+	public static int garantia1 = 10;
 	public static String tamaño1 = "2 Plazas";
 	public static String material1 = "Tejido de Punto con Algodón Orgánico";
 	

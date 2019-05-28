@@ -1,23 +1,26 @@
 package ll;
 
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
-import javax.swing.DefaultComboBoxModel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import clase.Datos;
 
-public class ConsultarColchon extends JDialog implements ActionListener {
+import clase.Datos;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+public class ModificarColchones extends JDialog implements ActionListener {
 	private JTextField txtPrecio;
 	private JTextField txtGarantía;
 	private JTextField txtTamano;
 	private JTextField txtMaterial;
 	private JComboBox cboMarca;
+	private JButton btnGuardar;
 
 	/**
 	 * Launch the application.
@@ -26,7 +29,7 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ConsultarColchon dialog = new ConsultarColchon();
+					ModificarColchones dialog = new ModificarColchones();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
 				} catch (Exception e) {
@@ -39,8 +42,7 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 	/**
 	 * Create the dialog.
 	 */
-	public ConsultarColchon() {
-		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 14));
+	public ModificarColchones() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		
@@ -49,12 +51,6 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 		lblMarca.setBounds(20, 23, 63, 22);
 		getContentPane().add(lblMarca);
 		
-		cboMarca = new JComboBox();
-		cboMarca.addActionListener(this);
-		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
-		cboMarca.setBounds(135, 26, 230, 20);
-		getContentPane().add(cboMarca);
-		
 		JLabel lblPrecio = new JLabel("Precio (S/) :");
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPrecio.setBounds(20, 56, 76, 14);
@@ -62,7 +58,6 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setText(""+Datos.precio0);
-		txtPrecio.setEditable(false);
 		txtPrecio.setBounds(135, 55, 230, 20);
 		getContentPane().add(txtPrecio);
 		txtPrecio.setColumns(10);
@@ -74,7 +69,6 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 		
 		txtGarantía = new JTextField();
 		txtGarantía.setText(""+Datos.garantia0);
-		txtGarantía.setEditable(false);
 		txtGarantía.setBounds(135, 80, 230, 20);
 		getContentPane().add(txtGarantía);
 		txtGarantía.setColumns(10);
@@ -86,32 +80,44 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 		
 		txtTamano = new JTextField();
 		txtTamano.setText(""+Datos.tamaño0);
-		txtTamano.setEditable(false);
 		txtTamano.setBounds(135, 105, 230, 20);
 		getContentPane().add(txtTamano);
 		txtTamano.setColumns(10);
 		
 		JLabel lblMaterial = new JLabel("Material :");
 		lblMaterial.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMaterial.setBounds(20, 131, 63, 14);
+		lblMaterial.setBounds(20, 127, 113, 22);
 		getContentPane().add(lblMaterial);
 		
 		txtMaterial = new JTextField();
 		txtMaterial.setText(""+Datos.material0);
-		txtMaterial.setEditable(false);
 		txtMaterial.setBounds(135, 130, 230, 20);
 		getContentPane().add(txtMaterial);
-		txtMaterial.setColumns(10);
+		
+		cboMarca = new JComboBox();
+		cboMarca.addActionListener(this);
+		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
+		cboMarca.setBounds(135, 26, 230, 20);
+		getContentPane().add(cboMarca);
+		
+		btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(this);
+		btnGuardar.setBounds(55, 193, 89, 23);
+		getContentPane().add(btnGuardar);
 
 	}
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == cboMarca) {
-			actionPerformedComboBox(e);
+
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnGuardar) {
+			actionPerformedBtnGuardar(arg0);
+		}
+		if (arg0.getSource() == cboMarca) {
+			actionPerformedCboMarca(arg0);
 		}
 	}
-	protected void actionPerformedComboBox(ActionEvent e) {
+	protected void actionPerformedCboMarca(ActionEvent arg0) {
 		
-		int Marca = cboMarca.getSelectedIndex();
+        int Marca = cboMarca.getSelectedIndex();
 		
 	    switch (Marca) {
 		case 0: 
@@ -145,7 +151,13 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 			txtMaterial.setText(""+Datos.material4);
 		break;
 		
-		   
-		}
 	}
+	
+  }    
+	protected void actionPerformedBtnGuardar(ActionEvent arg0) {
+		
+		
+		
+	}
+	
 }
