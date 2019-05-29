@@ -9,10 +9,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Proyecto extends JFrame {
+public class Proyecto extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	private JMenuItem mntmConsultarColchn;
+	private JMenuItem mntmSalir;
+	private JMenuItem mntmModificarColchn;
+	private JMenuItem mntmListarColchones;
 
 	/**
 	 * Launch the application.
@@ -43,19 +49,23 @@ public class Proyecto extends JFrame {
 		JMenu mnArchivo = new JMenu("Archivo");
 		menuBar.add(mnArchivo);
 		
-		JMenuItem mntmSalir = new JMenuItem("Salir");
+		mntmSalir = new JMenuItem("Salir");
+		mntmSalir.addActionListener(this);
 		mnArchivo.add(mntmSalir);
 		
 		JMenu mnMantenimiento = new JMenu("Mantenimiento");
 		menuBar.add(mnMantenimiento);
 		 
-		JMenuItem mntmConsultarColchn = new JMenuItem("Consultar Colch\u00F3n");
+		mntmConsultarColchn = new JMenuItem("Consultar Colch\u00F3n");
+		mntmConsultarColchn.addActionListener(this);
 		mnMantenimiento.add(mntmConsultarColchn);
 		 
-		JMenuItem mntmModificarColchn = new JMenuItem("Modificar Colch\u00F3n");
+		mntmModificarColchn = new JMenuItem("Modificar Colch\u00F3n");
+		mntmModificarColchn.addActionListener(this);
 		mnMantenimiento.add(mntmModificarColchn);
 		 
-		JMenuItem mntmListarColchones = new JMenuItem("Listar Colchones");
+		mntmListarColchones = new JMenuItem("Listar Colchones");
+		mntmListarColchones.addActionListener(this);
 		mnMantenimiento.add(mntmListarColchones);
 		 
 		JMenu mnVentas = new JMenu("Ventas");
@@ -97,4 +107,33 @@ public class Proyecto extends JFrame {
 		setContentPane(contentPane);
 	}
 
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == mntmListarColchones) {
+			actionPerformedMntmListarColchones(arg0);
+		}
+		if (arg0.getSource() == mntmModificarColchn) {
+			actionPerformedMntmModificarColchn(arg0);
+		}
+		if (arg0.getSource() == mntmSalir) {
+			actionPerformedMntmSalir(arg0);
+		}
+		if (arg0.getSource() == mntmConsultarColchn) {
+			actionPerformedMntmConsultarColchn(arg0);
+		}
+	}
+	protected void actionPerformedMntmConsultarColchn(ActionEvent arg0) {
+		ConsultarColchon CC = new ConsultarColchon();
+		CC.setVisible(true);
+	}
+	protected void actionPerformedMntmSalir(ActionEvent arg0) {
+		System.exit(0);
+	}
+	protected void actionPerformedMntmModificarColchn(ActionEvent arg0) {
+		ModificarColchones MC = new ModificarColchones();
+		MC.setVisible(true);
+	}
+	protected void actionPerformedMntmListarColchones(ActionEvent arg0) {
+		ListarColchones LC = new ListarColchones();
+		LC.setVisible(true);
+	}
 }

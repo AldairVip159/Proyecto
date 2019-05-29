@@ -144,8 +144,7 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 			txtTamano.setText(""+Datos.tamaño4);
 			txtMaterial.setText(""+Datos.material4);
 		break;
-		
-		   
 		}
+	   
 	}
 }

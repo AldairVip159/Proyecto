@@ -21,6 +21,7 @@ public class ModificarColchones extends JDialog implements ActionListener {
 	private JTextField txtMaterial;
 	private JComboBox cboMarca;
 	private JButton btnGuardar;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -102,12 +103,21 @@ public class ModificarColchones extends JDialog implements ActionListener {
 		
 		btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(this);
-		btnGuardar.setBounds(55, 193, 89, 23);
+		btnGuardar.setBounds(259, 189, 89, 23);
 		getContentPane().add(btnGuardar);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(90, 189, 89, 23);
+		getContentPane().add(btnCerrar);
+		
 
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(arg0);
+		}
 		if (arg0.getSource() == btnGuardar) {
 			actionPerformedBtnGuardar(arg0);
 		}
@@ -151,13 +161,11 @@ public class ModificarColchones extends JDialog implements ActionListener {
 			txtMaterial.setText(""+Datos.material4);
 		break;
 		
-	}
-	
+	}   
+	    
   }    
 	protected void actionPerformedBtnGuardar(ActionEvent arg0) {
 		
-		
-		
-	}
-	
+		}
+	protected void actionPerformedBtnCerrar(ActionEvent arg0) {System.exit(0);}
 }
