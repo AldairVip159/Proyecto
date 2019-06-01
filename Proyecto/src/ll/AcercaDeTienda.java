@@ -43,16 +43,20 @@ public class AcercaDeTienda extends JDialog {
 		getContentPane().add(lblTienda);
 		
 		separator = new JSeparator();
-		separator.setBounds(10, 67, 414, 2);
+		separator.setBounds(10, 67, 395, 2);
 		getContentPane().add(separator);
 		
 		lblAutores = new JLabel("Autores");
 		lblAutores.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblAutores.setBounds(176, 80, 93, 30);
+		lblAutores.setBounds(176, 80, 50, 30);
 		getContentPane().add(lblAutores);
 		
 		lblJhordanAldairVia = new JLabel("Jhordan Aldair Via Pese");
-		lblJhordanAldairVia.setBounds(148, 121, 149, 14);
+		lblJhordanAldairVia.setBounds(155, 121, 112, 14);
 		getContentPane().add(lblJhordanAldairVia);
+		
+		JLabel lblChristianMichaelCarpio = new JLabel("Christian Michael Carpio Gonzales");
+		lblChristianMichaelCarpio.setBounds(131, 146, 160, 14);
+		getContentPane().add(lblChristianMichaelCarpio);
 	}
 }
