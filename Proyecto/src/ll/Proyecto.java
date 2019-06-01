@@ -19,6 +19,13 @@ public class Proyecto extends JFrame implements ActionListener {
 	private JMenuItem mntmSalir;
 	private JMenuItem mntmModificarColchn;
 	private JMenuItem mntmListarColchones;
+	private JMenuItem mntmVender;
+	private JMenuItem mntmGenerarReportes;
+	private JMenuItem mntmConfigurarDescuento;
+	private JMenuItem mntmConfigurarObsequio;
+	private JMenuItem mntmConfigurarCantidad;
+	private JMenuItem mntmConfigurarPremioSorpresa;
+	private JMenuItem mntmAcercaDeTienda;
 
 	/**
 	 * Launch the application.
@@ -71,43 +78,68 @@ public class Proyecto extends JFrame implements ActionListener {
 		JMenu mnVentas = new JMenu("Ventas");
 		menuBar.add(mnVentas);
 		 
-		JMenuItem mntmVender = new JMenuItem("Vender");
+		mntmVender = new JMenuItem("Vender");
+		mntmVender.addActionListener(this);
 		mnVentas.add(mntmVender);
 		 
-		JMenuItem mntmGenerarReportes = new JMenuItem("Generar Reportes");
+		mntmGenerarReportes = new JMenuItem("Generar Reportes");
+		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
 		 
 		JMenu mnConfiguracin = new JMenu("Configuraci\u00F3n");
 		menuBar.add(mnConfiguracin);
 		 
-		JMenuItem mntmConfigurarDescuento = new JMenuItem("Configurar descuento");
+		mntmConfigurarDescuento = new JMenuItem("Configurar descuento");
+		mntmConfigurarDescuento.addActionListener(this);
 		mnConfiguracin.add(mntmConfigurarDescuento);
 		 
-		JMenuItem mntmConfigurarObsequio = new JMenuItem("Configurar obsequio");
+		mntmConfigurarObsequio = new JMenuItem("Configurar obsequio");
+		mntmConfigurarObsequio.addActionListener(this);
 		mnConfiguracin.add(mntmConfigurarObsequio);
 		 
-		JMenuItem mntmConfigurarCantidad = new JMenuItem("Configurar cantidad");
+		mntmConfigurarCantidad = new JMenuItem("Configurar cantidad");
+		mntmConfigurarCantidad.addActionListener(this);
 		mnConfiguracin.add(mntmConfigurarCantidad);
 		 
-		JMenuItem mntmColchonesVendidos = new JMenuItem("Colchones vendidos");
-		mnConfiguracin.add(mntmColchonesVendidos);
-		 
-		JMenuItem mntmConfigurarPremioSorpresa = new JMenuItem("Configurar premio sorpresa");
+		mntmConfigurarPremioSorpresa = new JMenuItem("Configurar premio sorpresa");
+		mntmConfigurarPremioSorpresa.addActionListener(this);
 	    mnConfiguracin.add(mntmConfigurarPremioSorpresa);
 		 
 		JMenu mnAyuda = new JMenu("Ayuda");
 		menuBar.add(mnAyuda);
 		 
-		JMenuItem mntmAcercaDeTienda = new JMenuItem("Acerca de Tienda");
+		mntmAcercaDeTienda = new JMenuItem("Acerca de Tienda");
+		mntmAcercaDeTienda.addActionListener(this);
 		mnAyuda.add(mntmAcercaDeTienda);
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == mntmAcercaDeTienda) {
+			actionPerformedMntmAcercaDeTienda(arg0);
+		}
+		if (arg0.getSource() == mntmConfigurarPremioSorpresa) {
+			actionPerformedMntmConfigurarPremioSorpresa(arg0);
+		}
+		if (arg0.getSource() == mntmConfigurarCantidad) {
+			actionPerformedMntmConfigurarCantidad(arg0);
+		}
+		if (arg0.getSource() == mntmConfigurarObsequio) {
+			actionPerformedMntmConfigurarObsequio(arg0);
+		}
+		if (arg0.getSource() == mntmConfigurarDescuento) {
+			actionPerformedMntmConfigurarDescuento(arg0);
+		}
+		if (arg0.getSource() == mntmGenerarReportes) {
+			actionPerformedMntmGenerarReportes(arg0);
+		}
+		if (arg0.getSource() == mntmVender) {
+			actionPerformedMntmVender(arg0);
+		}
 		if (arg0.getSource() == mntmListarColchones) {
 			actionPerformedMntmListarColchones(arg0);
 		}
@@ -135,5 +167,33 @@ public class Proyecto extends JFrame implements ActionListener {
 	protected void actionPerformedMntmListarColchones(ActionEvent arg0) {
 		ListarColchones LC = new ListarColchones();
 		LC.setVisible(true);
+	}
+	protected void actionPerformedMntmVender(ActionEvent arg0) {
+		Ventas V = new Ventas();
+		V.setVisible(true);
+	}
+	protected void actionPerformedMntmGenerarReportes(ActionEvent arg0) {
+		GenerarReportes GR = new GenerarReportes();
+		GR.setVisible(true);
+	}
+	protected void actionPerformedMntmConfigurarDescuento(ActionEvent arg0) {
+		ConfigurarDescuento CD = new ConfigurarDescuento();
+		CD.setVisible(true);
+	}
+	protected void actionPerformedMntmConfigurarObsequio(ActionEvent arg0) {
+		ConfigurarObsequio CO = new ConfigurarObsequio();
+		CO.setVisible(true);
+	}
+	protected void actionPerformedMntmConfigurarCantidad(ActionEvent arg0) {
+		ConfigurarCantidad CC = new ConfigurarCantidad();
+		CC.setVisible(true);
+	}
+	protected void actionPerformedMntmConfigurarPremioSorpresa(ActionEvent arg0) {
+		ConfigurarPremioSorpresa CPS = new ConfigurarPremioSorpresa();
+		CPS.setVisible(true);
+	}
+	protected void actionPerformedMntmAcercaDeTienda(ActionEvent arg0) {
+		AcercaDeTienda AT = new AcercaDeTienda();
+		AT.setVisible(true);
 	}
 }
