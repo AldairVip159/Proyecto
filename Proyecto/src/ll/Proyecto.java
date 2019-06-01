@@ -47,6 +47,7 @@ public class Proyecto extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Proyecto() {
+		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -169,7 +170,7 @@ public class Proyecto extends JFrame implements ActionListener {
 		LC.setVisible(true);
 	}
 	protected void actionPerformedMntmVender(ActionEvent arg0) {
-		Ventas V = new Ventas();
+		Vender V = new Vender();
 		V.setVisible(true);
 	}
 	protected void actionPerformedMntmGenerarReportes(ActionEvent arg0) {

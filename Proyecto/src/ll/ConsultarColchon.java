@@ -40,6 +40,7 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public ConsultarColchon() {
+		setTitle("Consultar Colchon");
 		getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 14));
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);

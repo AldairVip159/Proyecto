@@ -34,6 +34,7 @@ public class AcercaDeTienda extends JDialog {
 	 * Create the dialog.
 	 */
 	public AcercaDeTienda() {
+		setTitle("Acerca de Tienda");
 		setBounds(100, 100, 431, 222);
 		getContentPane().setLayout(null);
 		

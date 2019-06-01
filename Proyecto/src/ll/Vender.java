@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class Ventas extends JDialog {
+public class Vender extends JDialog {
 	private JLabel lblMarca;
 	private JLabel lblPrecios;
 	private JLabel lblCantidad;
@@ -31,7 +31,7 @@ public class Ventas extends JDialog {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ventas dialog = new Ventas();
+					Vender dialog = new Vender();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
 				} catch (Exception e) {
@@ -44,7 +44,8 @@ public class Ventas extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Ventas() {
+	public Vender() {
+		setTitle("Vender");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		
