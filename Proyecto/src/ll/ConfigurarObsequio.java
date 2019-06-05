@@ -36,6 +36,7 @@ public class ConfigurarObsequio extends JDialog {
 	 * Create the dialog.
 	 */
 	public ConfigurarObsequio() {
+		setTitle("Configurar Obsequio");
 		setBounds(100, 100, 505, 213);
 		getContentPane().setLayout(null);
 		

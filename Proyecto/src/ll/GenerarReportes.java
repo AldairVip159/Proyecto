@@ -38,6 +38,7 @@ public class GenerarReportes extends JDialog {
 	 * Create the dialog.
 	 */
 	public GenerarReportes() {
+		setTitle("Generar Reportes");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		

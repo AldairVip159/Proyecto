@@ -37,6 +37,7 @@ public class ListarColchones extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public ListarColchones() {
+		setTitle("Listar Colchones");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		

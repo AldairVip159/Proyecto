@@ -44,6 +44,7 @@ public class ConfigurarDescuento extends JDialog {
 	 * Create the dialog.
 	 */
 	public ConfigurarDescuento() {
+		setTitle("Configurar Descuento");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		

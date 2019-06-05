@@ -34,6 +34,7 @@ public class ConfigurarCantidad extends JDialog {
 	 * Create the dialog.
 	 */
 	public ConfigurarCantidad() {
+		setTitle("Configurar Cantidad");
 		setBounds(100, 100, 498, 207);
 		getContentPane().setLayout(null);
 		
