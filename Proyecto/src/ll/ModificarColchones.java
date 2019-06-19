@@ -23,6 +23,8 @@ public class ModificarColchones extends JDialog implements ActionListener {
 	private JButton btnGuardar;
 	private JButton btnCerrar;
 
+	int Marca;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -128,7 +130,7 @@ public class ModificarColchones extends JDialog implements ActionListener {
 	}
 	protected void actionPerformedCboMarca(ActionEvent arg0) {
 		
-        int Marca = cboMarca.getSelectedIndex();
+		Marca = GetMarca();
 		
 	    switch (Marca) {
 		case 0: 
@@ -155,7 +157,7 @@ public class ModificarColchones extends JDialog implements ActionListener {
 			txtTamano.setText(""+Datos.tamaño3);
 			txtMaterial.setText(""+Datos.material3);
 		break;
-		case 4: 
+		default: 
 			txtPrecio.setText(""+Datos.precio4);
 			txtGarantía.setText(""+Datos.garantia4);
 			txtTamano.setText(""+Datos.tamaño4);
@@ -164,9 +166,50 @@ public class ModificarColchones extends JDialog implements ActionListener {
 		
 	}   
 	    
-  }    
+}    
+	 
 	protected void actionPerformedBtnGuardar(ActionEvent arg0) {
 		
+		Marca = GetMarca();
+		
+		switch (Marca) {
+		case 0:	
+			Datos.precio0 = Double.parseDouble(txtPrecio.getText());
+			Datos.garantia0 = Integer.parseInt(txtGarantía.getText());
+			Datos.tamaño0 = txtTamano.getText();
+			Datos.material0 = txtMaterial.getText();
+			break;	
+		case 1:	
+			Datos.precio1 = Double.parseDouble(txtPrecio.getText());
+			Datos.garantia1 = Integer.parseInt(txtGarantía.getText());
+			Datos.tamaño1 = txtTamano.getText();
+			Datos.material1 = txtMaterial.getText();
+			break;
+		case 2:
+			Datos.precio2 = Double.parseDouble(txtPrecio.getText());
+			Datos.garantia2 = Integer.parseInt(txtGarantía.getText());
+			Datos.tamaño2 = txtTamano.getText();
+			Datos.material2 = txtMaterial.getText();
+			break;
+		case 3:
+			Datos.precio3 = Double.parseDouble(txtPrecio.getText());
+			Datos.garantia3 = Integer.parseInt(txtGarantía.getText());
+			Datos.tamaño3 = txtTamano.getText();
+			Datos.material3 = txtMaterial.getText();
+			break;
+		default:
+			Datos.precio4 = Double.parseDouble(txtPrecio.getText());
+			Datos.garantia4 = Integer.parseInt(txtGarantía.getText());
+			Datos.tamaño4 = txtTamano.getText();
+			Datos.material4 = txtMaterial.getText();
+			break;
 		}
+	}
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {System.exit(0);}
+
+
+	Integer GetMarca(){
+		return cboMarca.getSelectedIndex();
+	}
+	
 }

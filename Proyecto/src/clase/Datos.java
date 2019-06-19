@@ -2,6 +2,9 @@ package clase;
 
 public class Datos {
 	
+	// ================== Datos de Colchones ================= //
+	
+	
 	// Datos mínimos del primer colchón
 	
 	public static String marca0 = "Suavestar";
@@ -41,5 +44,39 @@ public class Datos {
 	public static int garantia4 = 2;
 	public static String tamaño4 = "1 1/2 Plazas";
 	public static String material4 = "Tejido de Punto";
+	
+	
+	// =================== Cambio de Datos a Descuento ========================== //
+	
+	
+	// Porcentajes de descuento
+		public static double porcentaje1 = 7.5;
+		public static double porcentaje2 = 10.0;
+		public static double porcentaje3 = 12.5;
+		public static double porcentaje4 = 15.0;
+		
+		
+	// =================== Cambio de Datos a Variados ========================== //
+		
+		
+	// Cantidad óptima de colchones vendidos
+		
+	public static int cantidadOptima = 10;
+	
+	// Cantidad mínima de colchones adquiridos para acceder al obsequio
+	
+	public static int cantidadMinimaObsequiable = 3;
+	
+	// Obsequio por cantidad mínima de colchones adquiridos
+	
+	public static String obsequio = "USB";
+	
+	// Número de cliente que recibe el premio sorpresa
+	
+	public static int numeroClienteSorpresa = 5;
+	
+	// Premio sorpresa
+	
+	public static String premioSorpresa = "Un polo";
 
 }
