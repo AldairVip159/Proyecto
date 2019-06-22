@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 
 import clase.Datos;
 import java.awt.event.ActionListener;
+import java.util.Set;
+
 import javax.swing.JButton;
 
 public class ModificarColchones extends JDialog implements ActionListener {
@@ -205,7 +207,10 @@ public class ModificarColchones extends JDialog implements ActionListener {
 			break;
 		}
 	}
-	protected void actionPerformedBtnCerrar(ActionEvent arg0) {System.exit(0);}
+	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
+		Proyecto Pp = new Proyecto();
+		Pp.setVisible(true);
+	}
 
 
 	Integer GetMarca(){
