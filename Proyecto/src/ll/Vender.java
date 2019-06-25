@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.TextArea;
+
 import javax.swing.JTextField;
 import clase.Datos;
 import javax.swing.JComboBox;
@@ -28,9 +30,9 @@ public class Vender extends JDialog implements ActionListener {
 	private JTextArea textArea;
 	
 	double P1=Datos.porcentaje1, P2=Datos.porcentaje2, P3=Datos.porcentaje3, P4=Datos.porcentaje4;
-	int CO=Datos.cantidadMinimaObsequiable;
+	int CO=Datos.cantidadMinimaObsequiable, CSorpresa = Datos.numeroClienteSorpresa;
 	double precio, IC, ID, IP;
-	int cantidad, obsequio, marca;
+	int cantidad, obsequio, marca, contador=0;
 	/**
 	 * Launch the application.
 	 */
@@ -72,6 +74,8 @@ public class Vender extends JDialog implements ActionListener {
 		getContentPane().add(lblCantidad);
 		
 		txtPrecio = new JTextField();
+		txtPrecio.setText("S/.499.0");
+		txtPrecio.setEditable(false);
 		txtPrecio.setBounds(118, 51, 86, 20);
 		getContentPane().add(txtPrecio);
 		txtPrecio.setColumns(10);
@@ -82,6 +86,7 @@ public class Vender extends JDialog implements ActionListener {
 		txtCantidad.setColumns(10);
 		
 		cboMarca = new JComboBox();
+		cboMarca.addActionListener(this);
 		cboMarca.setModel(new DefaultComboBoxModel(new String[] {"Suavestar", "Springwall", "Paraiso", "Drimer", "Cisne"}));
 		cboMarca.setBounds(118, 26, 86, 20);
 		getContentPane().add(cboMarca);
@@ -107,17 +112,28 @@ public class Vender extends JDialog implements ActionListener {
 	
 	
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == cboMarca) {
+			actionPerformedCboMarca(e);
+		}
 		if (e.getSource() == btnVender) {
 			actionPerformedBtnVender(e);
 		}
 	}
+	
 	protected void actionPerformedBtnVender(ActionEvent e) {
+		
 		marca = GetMarca();
+		marcas();
 		cantidad = GetCantidad();
 		precio = GetPrecio(marca);
 		IC = GetImporteDeCompra(precio, cantidad);
 		ID = GetImporteDeDescuento(IC, P1, P2, P3, P4, cantidad);
 		IP = GetImportePagar(IC, ID);
+		contador = GetContador();
+		Mostar();
+		GetObsequio();
+		GetClienteSorpresa();
+		
 		
 	}
 	int GetMarca(){
@@ -144,17 +160,17 @@ public class Vender extends JDialog implements ActionListener {
 		return p * c;
 	}
 	double GetImporteDeDescuento(double ic,double P1,double P2,double P3,double P4,int c){
-		if (c <= 1 && c >= 5){
-			return P1 * ic;
+		if (c >= 1 && c <= 5){
+			return (P1/100) * ic;
 		}
-		else if (c <= 6 && c >= 10){
-			return P2 * ic;
+		else if (c >= 6 && c <= 10){
+			return (P2/100) * ic;
 		}
-		else if (c <= 11 && c >= 15){
-			return P3 * ic;
+		else if (c >= 11 && c <= 15){
+			return (P3/100) * ic;
 		}
-		else if (c < 15){
-			return P4 * ic;
+		else if (c > 15){
+			return (P4/100) * ic;
 		}
 		else{
 			return 0;
@@ -164,8 +180,77 @@ public class Vender extends JDialog implements ActionListener {
 		return ic - id;
 	}
 	void GetObsequio(){
-		if(cantidad <= CO){
-			// eror ===== obsequio = Datos.obsequio;
+		if(cantidad >= CO){
+			textArea.append("\t                 Usted gano un: "+Datos.obsequio+"\n");
+		}
+		else {
+			textArea.append("");
+		}
+	}
+	int GetContador(){
+		return contador+1;
+	}
+	void GetClienteSorpresa(){
+		if (contador == CSorpresa){
+			textArea.append("\t              Usted Gano un: "+Datos.premioSorpresa);
+		}
+		else {
+			textArea.append("");
+		}
+	}
+	void Mostar(){
+		textArea.append(" ========================================================\n");
+		textArea.append("\t  El precio de este producto es: "+precio+"\n");
+		textArea.append("\tLa cantidad de productos compra es: "+cantidad+"\n");
+		textArea.append(" ========================================================\n");
+		textArea.append("\t       El importe de compra es: "+IC+"\n");
+		textArea.append("\t      El importe de descuento es: "+ID+"\n");
+		textArea.append("\t        El importe a pagar es: "+IP+"\n");
+		textArea.append(" ========================================================\n");
+	}
+	void marcas(){
+		switch (marca) {
+		case 0:
+			textArea.setText("\t                   BOLETA DE PAGO\n\n");
+			textArea.append("                      La Marca del colchon comprado es: "+Datos.marca0+"\n");
+			break;
+		case 1:
+			textArea.setText("\t\tBOLETA DE PAGO\n\n");
+			textArea.append("\tLa Marca del colchon comprado es: "+Datos.marca1+"\n");
+			break;
+		case 2:
+			textArea.setText("\t\tBOLETA DE PAGO\n\n");
+			textArea.append("\tLa Marca del colchon comprado es: "+Datos.marca2+"\n");
+			break;
+		case 3:
+			textArea.setText("\t\tBOLETA DE PAGO\n\n");
+			textArea.append("\tLa Marca del colchon comprado es: "+Datos.marca3+"\n");
+			break;
+		default:
+			textArea.setText("\t\tBOLETA DE PAGO\n\n");
+			textArea.append("\tLa Marca del colchon comprado es: "+Datos.marca4+"\n");
+			break;
+		}
+	}
+	protected void actionPerformedCboMarca(ActionEvent e) {
+		marca = cboMarca.getSelectedIndex();
+		
+		switch (marca) {
+		case 0:
+			txtPrecio.setText("S/."+Datos.precio0);
+			break;
+		case 1:
+			txtPrecio.setText("S/."+Datos.precio1);
+			break;
+		case 2:
+			txtPrecio.setText("S/."+Datos.precio2);
+			break;
+		case 3:
+			txtPrecio.setText("S/."+Datos.precio3);
+			break;
+		default:
+			txtPrecio.setText("S/."+Datos.precio4);
+			break;
 		}
 	}
 }
