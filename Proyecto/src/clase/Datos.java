@@ -78,5 +78,21 @@ public class Datos {
 	// Premio sorpresa
 	
 	public static String premioSorpresa = "Un polo";
+	
+	// Variables para el contador
+	
+	public static int contador0 = 0;
+	public static int contador1 = 0;
+	public static int contador2 = 0;
+	public static int contador3 = 0;
+	public static int contador4 = 0;
+	
+	// Variable para el acumulador
+	
+	public static int acumulador0 = 0;
+	public static int acumulador1 = 0;
+	public static int acumulador2 = 0;
+	public static int acumulador3 = 0;
+	public static int acumulador4 = 0;
 
 }

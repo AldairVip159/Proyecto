@@ -9,8 +9,12 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import clase.Datos;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import ll.Vender;
 
-public class GenerarReportes extends JDialog {
+public class GenerarReportes extends JDialog implements ActionListener {
 	private JLabel lblTipodeReportes;
 	private JComboBox cboTipo;
 	private JButton btnCerrar;
@@ -47,6 +51,7 @@ public class GenerarReportes extends JDialog {
 		getContentPane().add(lblTipodeReportes);
 		
 		cboTipo = new JComboBox();
+		cboTipo.addActionListener(this);
 		cboTipo.setModel(new DefaultComboBoxModel(new String[] {"Ventas por Marca", "Marcas con venta \u00F3ptima", "Precios en relaci\u00F3n al promedio", "Precio promedios, medios y mayor"}));
 		cboTipo.setBounds(121, 22, 187, 20);
 		getContentPane().add(cboTipo);
@@ -61,7 +66,31 @@ public class GenerarReportes extends JDialog {
 		
 		textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
-
 	}
+	
+	
 
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == cboTipo) {
+			actionPerformedCboTipoJComboBox(arg0);
+		}
+	}
+	protected void actionPerformedCboTipoJComboBox(ActionEvent arg0) {
+		
+		int marca=cboTipo.getSelectedIndex();
+		
+		switch (marca) {
+		case 0:
+			textArea.setText("\t Ventas de Colchones");
+			textArea.append("\n");
+			textArea.append("Marca \t: "+Datos.marca0);
+			textArea.append("Cantidad de ventas \t: "+Datos.contador0);
+			textArea.append("Cantidad de unidades vendidas \t: ");
+			break;
+
+		default:
+			break;
+		}
+		
+	}
 }

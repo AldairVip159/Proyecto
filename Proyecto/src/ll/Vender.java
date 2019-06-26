@@ -33,6 +33,9 @@ public class Vender extends JDialog implements ActionListener {
 	int CO=Datos.cantidadMinimaObsequiable, CSorpresa = Datos.numeroClienteSorpresa;
 	double precio, IC, ID, IP;
 	int cantidad, obsequio, marca, contador=0;
+	int c1=Datos.contador0, c2=Datos.contador1, c3=Datos.contador2, c4=Datos.contador3, c5=Datos.contador4;
+	int a1=Datos.acumulador0, a2=Datos.acumulador1, a3=Datos.acumulador2, a4=Datos.acumulador3, a5=Datos.acumulador4;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -129,10 +132,12 @@ public class Vender extends JDialog implements ActionListener {
 		IC = GetImporteDeCompra(precio, cantidad);
 		ID = GetImporteDeDescuento(IC, P1, P2, P3, P4, cantidad);
 		IP = GetImportePagar(IC, ID);
-		contador = GetContador();
+		GetContadorAcumulador();
+		contador++;
 		Mostar();
 		GetObsequio();
 		GetClienteSorpresa();
+		GuardasLosContadoresAcumuladores();
 		
 		
 	}
@@ -187,16 +192,41 @@ public class Vender extends JDialog implements ActionListener {
 			textArea.append("");
 		}
 	}
-	int GetContador(){
-		return contador+1;
+	void GetContadorAcumulador(){
+		
+		switch (marca) {
+		case 0:
+			c1++; 
+			a1=a1+cantidad;
+			break;
+		case 1:
+			c2++;
+			a2=a2+cantidad;
+			break;
+		case 2:
+			c3++;
+			a3=a3+cantidad;
+			break;
+		case 3:
+			c4++;
+			a4=a4+cantidad;
+		default:
+			c5++;
+			a5=a5+cantidad;
+			break;
+		}
 	}
-	void GetClienteSorpresa(){
-		if (contador == CSorpresa){
-			textArea.append("\t              Usted Gano un: "+Datos.premioSorpresa);
-		}
-		else {
-			textArea.append("");
-		}
+	void GuardasLosContadoresAcumuladores(){
+		Datos.contador0 = c1;
+		Datos.contador1 = c2;
+		Datos.contador2 = c3;
+		Datos.contador3 = c4;
+		Datos.contador4 = c5;
+		Datos.acumulador0 = a1;
+		Datos.acumulador1 = a2;
+		Datos.acumulador2 = a3;
+		Datos.acumulador3 = a4;
+		Datos.acumulador4 = a5;
 	}
 	void Mostar(){
 		textArea.append(" ========================================================\n");
@@ -251,6 +281,11 @@ public class Vender extends JDialog implements ActionListener {
 		default:
 			txtPrecio.setText("S/."+Datos.precio4);
 			break;
+		}
+	}
+	void GetClienteSorpresa(){
+		if(contador == CSorpresa){
+			textArea.append("\t             Usted gano un : "+Datos.premioSorpresa);
 		}
 	}
 }
