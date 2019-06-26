@@ -81,11 +81,36 @@ public class GenerarReportes extends JDialog implements ActionListener {
 		
 		switch (marca) {
 		case 0:
-			textArea.setText("\t Ventas de Colchones");
+			textArea.setText("\t  Ventas de Colchones");
 			textArea.append("\n");
-			textArea.append("Marca \t: "+Datos.marca0);
-			textArea.append("Cantidad de ventas \t: "+Datos.contador0);
-			textArea.append("Cantidad de unidades vendidas \t: ");
+			textArea.append("\n Marca \t\t: "+Datos.marca0);
+			textArea.append("\n Cantidad de ventas \t: "+Datos.contador0);
+			textArea.append("\nCantidad de unidades vendidas: "+Datos.acumulador0);
+			textArea.append("\n Importe total acumulado \t: S/."+Datos.acumuladorIC0);
+			textArea.append("\n");
+			textArea.append("\n Marca \t\t: "+Datos.marca1);
+			textArea.append("\n Cantidad de ventas \t: "+Datos.contador1);
+			textArea.append("\nCantidad de unidades vendidas: "+Datos.acumulador1);
+			textArea.append("\n Importe total acumulado \t: S/."+Datos.acumuladorIC1);
+			textArea.append("\n");
+			textArea.append("\n Marca \t\t: "+Datos.marca2);
+			textArea.append("\n Cantidad de ventas \t: "+Datos.contador2);
+			textArea.append("\nCantidad de unidades vendidas: "+Datos.acumulador2);
+			textArea.append("\n Importe total acumulado \t: S/."+Datos.acumuladorIC2);
+			textArea.append("\n");
+			textArea.append("\n Marca \t\t: "+Datos.marca3);
+			textArea.append("\n Cantidad de ventas \t: "+Datos.contador3);
+			textArea.append("\nCantidad de unidades vendidas: "+Datos.acumulador3);
+			textArea.append("\n Importe total acumulado \t: S/."+Datos.acumuladorIC3);
+			textArea.append("\n");
+			textArea.append("\n Marca \t\t: "+Datos.marca4);
+			textArea.append("\n Cantidad de ventas \t: "+Datos.contador4);
+			textArea.append("\nCantidad de unidades vendidas: "+Datos.acumulador4);
+			textArea.append("\n Importe total acumulado \t: S/."+Datos.acumuladorIC4);
+			textArea.append("\n");
+			textArea.append("\n");
+			textArea.append("\n Importe total general acumulado:S/."+Datos.acumaladorICT);
+			textArea.append("\n Cantidad total general de ventas :"+Datos.acumuladorT);
 			break;
 
 		default:

@@ -30,11 +30,12 @@ public class Vender extends JDialog implements ActionListener {
 	private JTextArea textArea;
 	
 	double P1=Datos.porcentaje1, P2=Datos.porcentaje2, P3=Datos.porcentaje3, P4=Datos.porcentaje4;
+	double ic1=Datos.acumuladorIC0, ic2=Datos.acumuladorIC1, ic3=Datos.acumuladorIC2, ic4=Datos.acumuladorIC3, ic5=Datos.acumuladorIC4, ict=Datos.acumaladorICT;
+	double precio, IC, ID, IP, acumuladorICT=Datos.acumaladorICT;
 	int CO=Datos.cantidadMinimaObsequiable, CSorpresa = Datos.numeroClienteSorpresa;
-	double precio, IC, ID, IP;
 	int cantidad, obsequio, marca, contador=0;
 	int c1=Datos.contador0, c2=Datos.contador1, c3=Datos.contador2, c4=Datos.contador3, c5=Datos.contador4;
-	int a1=Datos.acumulador0, a2=Datos.acumulador1, a3=Datos.acumulador2, a4=Datos.acumulador3, a5=Datos.acumulador4;
+	int a1=Datos.acumulador0, a2=Datos.acumulador1, a3=Datos.acumulador2, a4=Datos.acumulador3, a5=Datos.acumulador4, at=Datos.acumuladorT;
 	
 	/**
 	 * Launch the application.
@@ -194,25 +195,33 @@ public class Vender extends JDialog implements ActionListener {
 	}
 	void GetContadorAcumulador(){
 		
+		acumuladorICT = acumuladorICT + IC;
+		at = at + cantidad; 
+		
 		switch (marca) {
 		case 0:
 			c1++; 
 			a1=a1+cantidad;
+			ic1=ic1 + IC;
 			break;
 		case 1:
 			c2++;
 			a2=a2+cantidad;
+			ic2=ic2 + IC;
 			break;
 		case 2:
 			c3++;
 			a3=a3+cantidad;
+			ic3=ic3 + IC;
 			break;
 		case 3:
 			c4++;
 			a4=a4+cantidad;
+			ic4=ic4 + IC;
 		default:
 			c5++;
 			a5=a5+cantidad;
+			ic5=ic5 + IC;
 			break;
 		}
 	}
@@ -227,6 +236,13 @@ public class Vender extends JDialog implements ActionListener {
 		Datos.acumulador2 = a3;
 		Datos.acumulador3 = a4;
 		Datos.acumulador4 = a5;
+		Datos.acumuladorT = at;
+		Datos.acumuladorIC0 = ic1;
+		Datos.acumuladorIC1 = ic2;
+		Datos.acumuladorIC2 = ic3;
+		Datos.acumuladorIC3 = ic4;
+		Datos.acumuladorIC4 = ic5;
+		Datos.acumaladorICT = acumuladorICT;
 	}
 	void Mostar(){
 		textArea.append(" ========================================================\n");
@@ -245,20 +261,20 @@ public class Vender extends JDialog implements ActionListener {
 			textArea.append("                      La Marca del colchon comprado es: "+Datos.marca0+"\n");
 			break;
 		case 1:
-			textArea.setText("\t\tBOLETA DE PAGO\n\n");
-			textArea.append("\tLa Marca del colchon comprado es: "+Datos.marca1+"\n");
+			textArea.setText("\t                   BOLETA DE PAGO\n\n");
+			textArea.append("                      La Marca del colchon comprado es: "+Datos.marca1+"\n");
 			break;
 		case 2:
-			textArea.setText("\t\tBOLETA DE PAGO\n\n");
-			textArea.append("\tLa Marca del colchon comprado es: "+Datos.marca2+"\n");
+			textArea.setText("\t                   BOLETA DE PAGO\n\n");
+			textArea.append("                      La Marca del colchon comprado es: "+Datos.marca2+"\n");
 			break;
 		case 3:
-			textArea.setText("\t\tBOLETA DE PAGO\n\n");
-			textArea.append("\tLa Marca del colchon comprado es: "+Datos.marca3+"\n");
+			textArea.setText("\t                   BOLETA DE PAGO\n\n");
+			textArea.append("                      La Marca del colchon comprado es: "+Datos.marca3+"\n");
 			break;
 		default:
-			textArea.setText("\t\tBOLETA DE PAGO\n\n");
-			textArea.append("\tLa Marca del colchon comprado es: "+Datos.marca4+"\n");
+			textArea.setText("\t                   BOLETA DE PAGO\n\n");
+			textArea.append("                      La Marca del colchon comprado es: "+Datos.marca4+"\n");
 			break;
 		}
 	}
