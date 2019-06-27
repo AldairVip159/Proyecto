@@ -21,6 +21,9 @@ public class GenerarReportes extends JDialog implements ActionListener {
 	private JScrollPane scrollPane;
 	private JTextArea textArea;
 
+	int COptima=Datos.cantidadOptima;
+	int a1=Datos.acumulador0, a2=Datos.acumulador1, a3=Datos.acumulador2, a4=Datos.acumulador3, a5=Datos.acumulador4;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -112,8 +115,276 @@ public class GenerarReportes extends JDialog implements ActionListener {
 			textArea.append("\n Importe total general acumulado:S/."+Datos.acumaladorICT);
 			textArea.append("\n Cantidad total general de ventas :"+Datos.acumuladorT);
 			break;
+		case 1:
+			textArea.setText("\t              Colchones con venta óptima\n");
+			
+			if (a1 >= COptima){
+				if (a2 >= COptima){
+					if (a3 >= COptima){
+						if (a4 >= COptima){
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+							}
+						}
+						else {
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+							}
+						}
+					}
+					else{
+						if (a4 >= COptima){
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+							}
+						}
+						else{
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+							}
+						}
+					}
+				}
+				else {
+					if (a3 >= COptima){
+						if (a4 >= COptima){
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
 
+							}
+						}
+						else {
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+							}
+							
+						}
+					}
+					else {
+						if (a4 >= COptima){
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+							}
+						}
+						else {
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca0+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador0+" ( "+(Datos.acumulador0-COptima)+" )\n");
+							}
+						}
+					}
+				}
+			}
+			else {
+				if (a2 >= COptima){
+					if(a3 >= COptima){
+						if (a4 >= COptima){
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");	
+							}
+						}
+						else {
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+							}
+						}
+					}
+					else {
+						if(a4 >= COptima){
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+							}
+						}
+						else {
+							if (a5 >= COptima){
+							textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+							textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+							textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+							textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+							}
+							else {
+							textArea.append("\nMarca \t\t: "+Datos.marca1+"\n");
+							textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador1+" ( "+(Datos.acumulador1-COptima)+" )\n");
+							}
+						}
+					}
+				}		
+				else {
+					if (a3 >= COptima){
+						if (a4 >= COptima){
+							if (a5 >= COptima){
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca4+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador4+" ( "+(Datos.acumulador4-COptima)+" )\n");
+							}
+							else {
+								textArea.append("\nMarca \t\t: "+Datos.marca2+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador2+" ( "+(Datos.acumulador2-COptima)+" )\n");
+								textArea.append("\nMarca \t\t: "+Datos.marca3+"\n");
+								textArea.append("Cantidad total de unidades vendidas: "+Datos.acumulador3+" ( "+(Datos.acumulador3-COptima)+" )\n");
+								
+							}
+						}
+						else {
+							
+						}
+					}
+					else {
+						if (a4 >= COptima){
+							
+						}
+						else {
+							
+						}
+					}
+				}
+			}
+			
 		default:
+			
 			break;
 		}
 		
