@@ -5,9 +5,14 @@ import java.awt.EventQueue;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 
-public class ConfigurarObsequio extends JDialog {
+import clase.Datos;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ConfigurarObsequio extends JDialog implements ActionListener {
 	private JLabel lblCantidadMnimaDe;
 	private JLabel lblObsequio;
 	private JTextField txtCantidadMinima;
@@ -52,20 +57,30 @@ public class ConfigurarObsequio extends JDialog {
 		txtCantidadMinima.setBounds(250, 18, 86, 20);
 		getContentPane().add(txtCantidadMinima);
 		txtCantidadMinima.setColumns(10);
+		txtCantidadMinima.setText(""+Datos.cantidadMinimaObsequiable);
 		
 		txtObsequio = new JTextField();
 		txtObsequio.setBounds(250, 43, 86, 20);
 		getContentPane().add(txtObsequio);
 		txtObsequio.setColumns(10);
+		txtObsequio.setText(""+Datos.obsequio);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(366, 17, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(366, 42, 89, 23);
 		getContentPane().add(btnCancelar);
-
 	}
-
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnAceptar) {
+			actionPerformedBtnAceptar(e);
+		}
+	}
+	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		Datos.cantidadMinimaObsequiable = Integer.parseInt(txtCantidadMinima.getText());
+		Datos.obsequio = txtObsequio.getText();
+	}
 }

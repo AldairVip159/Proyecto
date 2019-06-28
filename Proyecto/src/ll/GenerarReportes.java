@@ -81,6 +81,9 @@ public class GenerarReportes extends JDialog implements ActionListener {
 	protected void actionPerformedCboTipoJComboBox(ActionEvent arg0) {
 		
 		int marca=cboTipo.getSelectedIndex();
+		double VPromedio,p0=Datos.precio0,p1=Datos.precio1,p2=Datos.precio2,p3=Datos.precio3,p4=Datos.precio4;
+		
+		VPromedio = (p0 + p1 + p2 + p3 + p4)/5;
 		
 		switch (marca) {
 		case 0:
@@ -408,10 +411,101 @@ public class GenerarReportes extends JDialog implements ActionListener {
 			}
 			break;
 		case 2:
+			textArea.setText("\t            Precios en relación al Promedio");
+			textArea.append("\n========================================================\n\n");
+			textArea.append(" Nombre\t:  "+Datos.marca0+"\n");
+			textArea.append(" Precio\t:  "+Datos.precio0);
+			if (p0 > VPromedio){
+				textArea.append("  ( mayor al promedio ) \n\n");
+			}
+			else if (p0 == VPromedio){
+				textArea.append("  ( igual al promedio ) \n\n");
+			}
+			else {
+				textArea.append("  ( menor al promedio ) \n\n");
+			}
+			textArea.append(" Nombre\t:  "+Datos.marca1+"\n");
+			textArea.append(" Precio\t:  "+Datos.precio1);
+			if (p1 > VPromedio){
+				textArea.append("  ( mayor al promedio ) \n\n");
+			}
+			else if (p1 == VPromedio){
+				textArea.append("  ( igual al promedio ) \n\n");
+			}
+			else {
+				textArea.append("  ( menor al promedio ) \n\n");
+			}
+			textArea.append(" Nombre\t:  "+Datos.marca2+"\n");
+			textArea.append(" Precio\t:  "+Datos.precio2);
+			if (p2 > VPromedio){
+				textArea.append("  ( mayor al promedio ) \n\n");
+			}
+			else if (p2 == VPromedio){
+				textArea.append("  ( igual al promedio ) \n\n");
+			}
+			else {
+				textArea.append("  ( menor al promedio ) \n\n");
+			}
+			textArea.append(" Nombre\t:  "+Datos.marca3+"\n");
+			textArea.append(" Precio\t:  "+Datos.precio3);
+			if (p3 > VPromedio){
+				textArea.append("  ( mayor al promedio ) \n\n");
+			}
+			else if (p3 == VPromedio){
+				textArea.append("  ( igual al promedio ) \n\n");
+			}
+			else {
+				textArea.append("  ( menor al promedio ) \n\n");
+			}
+			textArea.append(" Nombre\t:  "+Datos.marca4+"\n");
+			textArea.append(" Precio\t:  "+Datos.precio4);
+			if (p4 > VPromedio){
+				textArea.append("  ( mayor al promedio ) \n\n");
+			}
+			else if (p4 == VPromedio){
+				textArea.append("  ( igual al promedio ) \n\n");
+			}
+			else {
+				textArea.append("  ( menor al promedio ) \n\n");
+			}
 			
+			textArea.append("\n Precio promedio  :  S/."+VPromedio);
+			break;
 			
 		default:
+			textArea.append("\t       Precio promedio, menor y mayor\n");
+			textArea.append("\n Precio promedio  :  S/."+VPromedio+"\n\n");
 			
+			if (p0 > p1 && p0 > p2 && p0 > p3 && p0 > p4){
+				textArea.append(" Precio mayor \t     : S/."+p0+"\n\n");
+			}
+			else if (p1 > p0 && p1 > p2 && p1 > p3 && p1 > p4){
+				textArea.append(" Precio mayor \t     : S/."+p1+"\n\n");
+			}
+			else if (p2 > p0 && p2 > p1 && p2 > p3 && p2 > p4){
+				textArea.append(" Precio mayor \t     : S/."+p2+"\n\n");
+			}
+			else if (p3 > p0 && p3 > p1 && p3 > p2 && p3 > p4){
+				textArea.append(" Precio mayor \t     : S/."+p3+"\n\n");
+			}
+			else {
+				textArea.append(" Precio mayor \t     : S/."+p4+"\n\n");
+			}
+			if (p0 < p1 && p0 < p2 && p0 < p3 && p0 < p4){
+				textArea.append(" Precio menor \t     : S/."+p0+"\n\n");
+			}
+			else if (p1 <p0 && p1 < p2 && p1 < p3 && p1 < p4){
+				textArea.append(" Precio menor \t     : S/."+p1+"\n\n");
+			}
+			else if (p2 < p0 && p2 < p1 && p2 < p3 && p2 < p4){
+				textArea.append(" Precio menor \t     : S/."+p2+"\n\n");
+			}
+			else if (p3 < p0 && p3 < p1 && p3 < p2 && p3 < p4){
+				textArea.append(" Precio menor \t     : S/."+p3+"\n\n");
+			}
+			else {
+				textArea.append(" Precio menor \t     : S/."+p4+"\n\n");
+			}
 			break;
 		}
 		
