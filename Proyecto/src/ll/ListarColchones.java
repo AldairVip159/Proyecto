@@ -38,24 +38,25 @@ public class ListarColchones extends JDialog implements ActionListener {
 	 */
 	public ListarColchones() {
 		setTitle("Listar Colchones");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 601, 440);
 		getContentPane().setLayout(null);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 414, 206);
+		scrollPane.setBounds(10, 11, 565, 321);
 		getContentPane().add(scrollPane);
 		
 		txtS = new JTextArea();
+		txtS.setEditable(false);
 		scrollPane.setViewportView(txtS);
 		
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(113, 343, 109, 47);
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(55, 228, 89, 23);
 		getContentPane().add(btnCerrar);
 		
 		btnListar = new JButton("Listar");
+		btnListar.setBounds(368, 343, 109, 47);
 		btnListar.addActionListener(this);
-		btnListar.setBounds(270, 228, 89, 23);
 		getContentPane().add(btnListar);
 
 	}
@@ -69,7 +70,8 @@ public class ListarColchones extends JDialog implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnListar(ActionEvent e) {
-		txtS.setText("Listado de Colchones\n");
+		txtS.setText("\tListado de Colchones\n");
+		txtS.append("==============================================================================\n");
 		txtS.append("\nMarca\t :  Suavestar\n");
 		txtS.append("Precio\t :  S/. "+Datos.precio0+"\n");
 		txtS.append("Garantía\t :  "+Datos.garantia0+"\n");
@@ -90,11 +92,6 @@ public class ListarColchones extends JDialog implements ActionListener {
 		txtS.append("Garantía\t :  "+Datos.garantia3+"\n");
 		txtS.append("Tamano\t :  "+Datos.tamaño3+"\n");
 		txtS.append("Material\t :  "+Datos.material3+"\n");
-		txtS.append("\nMarca\t :  Drimer\n");
-		txtS.append("Precio\t :  S/. "+Datos.precio3+"\n");
-		txtS.append("Garantía\t :  "+Datos.garantia3+"\n");
-		txtS.append("Tamano\t :  "+Datos.tamaño3+"\n");
-		txtS.append("Material\t :  "+Datos.material3+"\n");
 		txtS.append("\nMarca\t :  Cisne\n");
 		txtS.append("Precio\t :  S/. "+Datos.precio4+"\n");
 		txtS.append("Garantía\t :  "+Datos.garantia4+"\n");
@@ -102,6 +99,6 @@ public class ListarColchones extends JDialog implements ActionListener {
 		txtS.append("Material\t :  "+Datos.material4+"\n");
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
-		System.exit(0);
+		this.dispose();
 	}
 }

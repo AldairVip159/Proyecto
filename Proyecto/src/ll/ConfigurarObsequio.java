@@ -71,10 +71,14 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(366, 42, 89, 23);
 		getContentPane().add(btnCancelar);
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
 		if (e.getSource() == btnAceptar) {
 			actionPerformedBtnAceptar(e);
 		}
@@ -82,5 +86,8 @@ public class ConfigurarObsequio extends JDialog implements ActionListener {
 	protected void actionPerformedBtnAceptar(ActionEvent e) {
 		Datos.cantidadMinimaObsequiable = Integer.parseInt(txtCantidadMinima.getText());
 		Datos.obsequio = txtObsequio.getText();
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		this.dispose();
 	}
 }

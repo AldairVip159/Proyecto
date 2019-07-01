@@ -101,6 +101,7 @@ public class Vender extends JDialog implements ActionListener {
 		getContentPane().add(btnVender);
 		
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(301, 68, 89, 23);
 		getContentPane().add(btnCerrar);
 		
@@ -109,6 +110,7 @@ public class Vender extends JDialog implements ActionListener {
 		getContentPane().add(scrollPane);
 		
 		textArea = new JTextArea();
+		textArea.setEditable(false);
 		scrollPane.setViewportView(textArea);
 
 	}
@@ -116,6 +118,9 @@ public class Vender extends JDialog implements ActionListener {
 	
 	
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
 		if (e.getSource() == cboMarca) {
 			actionPerformedCboMarca(e);
 		}
@@ -303,5 +308,8 @@ public class Vender extends JDialog implements ActionListener {
 		if(contador == CSorpresa){
 			textArea.append("\t             Usted gano un : "+Datos.premioSorpresa);
 		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+			this.dispose();
 	}
 }

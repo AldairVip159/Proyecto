@@ -109,6 +109,15 @@ public class Datos {
 	
 	public static String premioSorpresa = "Un polo";
 	
+	// Cuenta de Trabajador y Admin
+	
+	public static String UsuarioTrabajador = "trabajador";
+	public static String ContraseñaTrabajador = "trabajador";
+	
+	public static String UsuarioAdmin = "admin";
+	public static String ContraseñaAdmin = "admin";
+	
+	
 	
 
 }

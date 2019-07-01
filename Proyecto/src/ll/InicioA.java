@@ -2,7 +2,6 @@ package ll;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.Panel;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,9 +11,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
 
-public class Proyecto extends JFrame implements ActionListener {
+public class InicioA extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JMenuItem mntmConsultarColchn;
@@ -28,7 +26,7 @@ public class Proyecto extends JFrame implements ActionListener {
 	private JMenuItem mntmConfigurarCantidad;
 	private JMenuItem mntmConfigurarPremioSorpresa;
 	private JMenuItem mntmAcercaDeTienda;
-	private JMenuItem mntmIniciarSesion;
+	private JMenuItem mntmCerrarSesin;
 
 	/**
 	 * Launch the application.
@@ -37,7 +35,7 @@ public class Proyecto extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Proyecto frame = new Proyecto();
+					InicioA frame = new InicioA();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +47,7 @@ public class Proyecto extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public Proyecto() {
+	public InicioA() {
 		setTitle("Tienda 1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(150, 150, 689, 438);
@@ -63,13 +61,12 @@ public class Proyecto extends JFrame implements ActionListener {
 		mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(this);
 		
-		mntmIniciarSesion = new JMenuItem("Iniciar Sesion");
-		mntmIniciarSesion.addActionListener(this);
-		mnArchivo.add(mntmIniciarSesion);
+		mntmCerrarSesin = new JMenuItem("Cerrar Sesi\u00F3n");
+		mntmCerrarSesin.addActionListener(this);
+		mnArchivo.add(mntmCerrarSesin);
 		mnArchivo.add(mntmSalir);
 		
 		JMenu mnMantenimiento = new JMenu("Mantenimiento");
-		mnMantenimiento.setEnabled(false);
 		menuBar.add(mnMantenimiento);
 		 
 		mntmConsultarColchn = new JMenuItem("Consultar Colch\u00F3n");
@@ -85,7 +82,6 @@ public class Proyecto extends JFrame implements ActionListener {
 		mnMantenimiento.add(mntmListarColchones);
 		 
 		JMenu mnVentas = new JMenu("Ventas");
-		mnVentas.setEnabled(false);
 		menuBar.add(mnVentas);
 		 
 		mntmVender = new JMenuItem("Vender");
@@ -97,7 +93,6 @@ public class Proyecto extends JFrame implements ActionListener {
 		mnVentas.add(mntmGenerarReportes);
 		 
 		JMenu mnConfiguracin = new JMenu("Configuraci\u00F3n");
-		mnConfiguracin.setEnabled(false);
 		menuBar.add(mnConfiguracin);
 		 
 		mntmConfigurarDescuento = new JMenuItem("Configurar descuento");
@@ -130,8 +125,8 @@ public class Proyecto extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == mntmIniciarSesion) {
-			actionPerformedMntmIniciarSesion(arg0);
+		if (arg0.getSource() == mntmCerrarSesin) {
+			actionPerformedMntmCerrarSesin(arg0);
 		}
 		if (arg0.getSource() == mntmAcercaDeTienda) {
 			actionPerformedMntmAcercaDeTienda(arg0);
@@ -210,9 +205,9 @@ public class Proyecto extends JFrame implements ActionListener {
 		AcercaDeTienda AT = new AcercaDeTienda();
 		AT.setVisible(true);
 	}
-	protected void actionPerformedMntmIniciarSesion(ActionEvent arg0){
-		Inicio IS = new Inicio();
-		IS.setVisible(true);
+	protected void actionPerformedMntmCerrarSesin(ActionEvent arg0) {
+		Proyecto P = new Proyecto();
+			P.setVisible(true);
 		this.dispose();
 	}
 }

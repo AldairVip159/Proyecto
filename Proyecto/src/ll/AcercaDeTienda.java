@@ -10,12 +10,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class AcercaDeTienda extends JDialog {
+public class AcercaDeTienda extends JDialog implements ActionListener {
 	private JLabel lblTienda;
 	private JSeparator separator;
 	private JLabel lblAutores;
 	private JLabel lblJhordanAldairVia;
+	private JButton button;
 
 	/**
 	 * Launch the application.
@@ -59,5 +62,18 @@ public class AcercaDeTienda extends JDialog {
 		JLabel lblChristianMichaelCarpio = new JLabel("Christian Michael Carpio Gonzales");
 		lblChristianMichaelCarpio.setBounds(131, 146, 160, 14);
 		getContentPane().add(lblChristianMichaelCarpio);
+		
+		button = new JButton("<-");
+		button.addActionListener(this);
+		button.setBounds(10, 11, 50, 30);
+		getContentPane().add(button);
+	}
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == button) {
+			actionPerformedButton(arg0);
+		}
+	}
+	protected void actionPerformedButton(ActionEvent arg0) {
+		this.dispose();
 	}
 }

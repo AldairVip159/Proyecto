@@ -46,34 +46,39 @@ public class GenerarReportes extends JDialog implements ActionListener {
 	 */
 	public GenerarReportes() {
 		setTitle("Generar Reportes");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 690, 395);
 		getContentPane().setLayout(null);
 		
 		lblTipodeReportes = new JLabel("Tipo de Reportes");
-		lblTipodeReportes.setBounds(24, 25, 88, 14);
+		lblTipodeReportes.setBounds(24, 20, 88, 14);
 		getContentPane().add(lblTipodeReportes);
 		
 		cboTipo = new JComboBox();
 		cboTipo.addActionListener(this);
 		cboTipo.setModel(new DefaultComboBoxModel(new String[] {"Ventas por Marca", "Marcas con venta \u00F3ptima", "Precios en relaci\u00F3n al promedio", "Precio promedios, medios y mayor"}));
-		cboTipo.setBounds(121, 22, 187, 20);
+		cboTipo.setBounds(126, 17, 266, 20);
 		getContentPane().add(cboTipo);
 		
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(324, 21, 89, 23);
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(491, 11, 104, 33);
 		getContentPane().add(btnCerrar);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 55, 414, 195);
+		scrollPane.setBounds(10, 55, 654, 290);
 		getContentPane().add(scrollPane);
 		
 		textArea = new JTextArea();
+		textArea.setEditable(false);
 		scrollPane.setViewportView(textArea);
 	}
 	
 	
 
 	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(arg0);
+		}
 		if (arg0.getSource() == cboTipo) {
 			actionPerformedCboTipoJComboBox(arg0);
 		}
@@ -508,6 +513,8 @@ public class GenerarReportes extends JDialog implements ActionListener {
 			}
 			break;
 		}
-		
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
+		this.dispose();
 	}
 }

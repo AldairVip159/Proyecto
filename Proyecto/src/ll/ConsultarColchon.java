@@ -11,6 +11,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import clase.Datos;
+import javax.swing.JButton;
 
 public class ConsultarColchon extends JDialog implements ActionListener {
 	private JTextField txtPrecio;
@@ -18,6 +19,7 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 	private JTextField txtTamano;
 	private JTextField txtMaterial;
 	private JComboBox cboMarca;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -103,9 +105,17 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 		txtMaterial.setBounds(135, 130, 230, 20);
 		getContentPane().add(txtMaterial);
 		txtMaterial.setColumns(10);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(174, 190, 89, 23);
+		getContentPane().add(btnCerrar);
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
 		if (e.getSource() == cboMarca) {
 			actionPerformedComboBox(e);
 		}
@@ -147,5 +157,8 @@ public class ConsultarColchon extends JDialog implements ActionListener {
 		break;
 		}
 	   
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		this.dispose();
 	}
 }

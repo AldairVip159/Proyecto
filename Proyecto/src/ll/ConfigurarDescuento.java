@@ -135,7 +135,6 @@ public class ConfigurarDescuento extends JDialog implements ActionListener {
 		Datos.porcentaje4 = Double.parseDouble(txtDescuento4.getText());
 	}
 	protected void actionPerformedBtnCerrar (ActionEvent e){
-		Proyecto Pr = new Proyecto();
-			Pr.setVisible(true);
+		this.dispose();
 	}
 }

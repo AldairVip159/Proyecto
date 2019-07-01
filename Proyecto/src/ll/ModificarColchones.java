@@ -208,8 +208,7 @@ public class ModificarColchones extends JDialog implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
-		Proyecto Pp = new Proyecto();
-		Pp.setVisible(true);
+		this.dispose();
 	}
 
 

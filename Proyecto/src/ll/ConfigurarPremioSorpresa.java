@@ -5,9 +5,14 @@ import java.awt.EventQueue;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 
-public class ConfigurarPremioSorpresa extends JDialog {
+import clase.Datos;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ConfigurarPremioSorpresa extends JDialog implements ActionListener {
 	private JLabel lblNmeroDeClientes;
 	private JTextField txtNumeroCliente;
 	private JLabel lblPremioSorpresa;
@@ -48,6 +53,7 @@ public class ConfigurarPremioSorpresa extends JDialog {
 		txtNumeroCliente.setBounds(129, 18, 86, 20);
 		getContentPane().add(txtNumeroCliente);
 		txtNumeroCliente.setColumns(10);
+		txtNumeroCliente.setText(""+Datos.numeroClienteSorpresa);
 		
 		lblPremioSorpresa = new JLabel("Premio Sorpresa");
 		lblPremioSorpresa.setBounds(25, 51, 91, 14);
@@ -57,15 +63,34 @@ public class ConfigurarPremioSorpresa extends JDialog {
 		txtPremio.setBounds(129, 48, 86, 20);
 		getContentPane().add(txtPremio);
 		txtPremio.setColumns(10);
+		txtPremio.setText(""+Datos.premioSorpresa);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(305, 17, 89, 23);
 		getContentPane().add(btnAceptar);
 		
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(this);
 		btnCancelar.setBounds(305, 47, 89, 23);
 		getContentPane().add(btnCancelar);
-
+		
+		
 	}
 
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(e);
+		}
+		if (e.getSource() == btnAceptar) {
+			actionPerformedBtnAceptar(e);
+		}
+	}
+	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		Datos.numeroClienteSorpresa = Integer.parseInt(txtNumeroCliente.getText());
+		Datos.premioSorpresa = txtPremio.getText();
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent e) {
+		this.dispose();
+	}
 }
